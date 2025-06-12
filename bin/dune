@@ -1,0 +1,4 @@
+(executable
+ (public_name atelier-gerer)
+ (name main)
+ (libraries server caqti-driver-postgresql))

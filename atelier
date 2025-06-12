@@ -1,0 +1,44 @@
+\h
+\?
+\user
+\?
+\d
+\?
+\?
+\dn
+\d
+\ds
+\?
+q
+\q
+\q
+\d
+\h
+\help
+\?
+\d
+\?
+\dt
+\c
+\c postgres 
+\atelier
+\c atelier
+\d
+SELECT * from dream_session 
+;
+SELECT * from dream_session;
+\q
+\d
+\dt
+\?
+\c
+\c atelier
+\dt
+SELECT * FROM marchedise;
+\c atelier
+\t
+\d
+SELECT * FROM marchendise;
+\d
+\u atelier
+\s atelier

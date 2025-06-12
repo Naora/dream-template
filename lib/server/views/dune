@@ -1,0 +1,5 @@
+(library
+ (name views)
+ (libraries domain containers pure-html assets))
+
+(include_subdirs qualified)

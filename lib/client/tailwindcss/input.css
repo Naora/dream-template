@@ -1,0 +1,11 @@
+@import "tailwindcss" source(none);
+
+@utility container {
+  margin-inline: auto;
+  padding-inline: 2rem;
+}
+
+@source "../../server";
+@plugin "./daisyui.js";
+@plugin "./daisyui-theme.js" {
+}
