@@ -5,7 +5,7 @@
   padding-inline: 2rem;
 }
 
-@source "../../server";
+@source "../../server/views";
 @plugin "./daisyui.js";
 @plugin "./daisyui-theme.js" {
 }

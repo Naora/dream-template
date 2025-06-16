@@ -1,18 +1,16 @@
 (executable
  (name asset_pipeline)
- (libraries fmt containers)
+ (libraries fmt containers yojson unix)
  (modules asset_pipeline))
 
 (library
  (name assets)
  (libraries dream)
- (modules assets))
+ (modules assets static))
 
 (rule
- (targets assets.ml)
+ (target static.ml)
  (deps
-  (source_tree assets))
+  (:src (source_tree static)))
  (action
-  (with-stdout-to
-   assets.ml
-   (run ./asset_pipeline.exe))))
+   (run ./asset_pipeline.exe %{src} -o %{target})))

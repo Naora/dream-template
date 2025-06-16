@@ -4,5 +4,8 @@ let not_found request =
   Layouts.main
     request
     ~title:"Page introuvable"
-    [ h1 [] [ txt "404: Le contenue que vous chercher semble introuvable." ] ]
+    [ h1
+        [ class_ "text-3xl" ]
+        [ txt "404: Le contenue que vous chercher semble introuvable." ]
+    ]
 ;;

@@ -27,6 +27,7 @@
                 pure-html
                 containers
                 fmt
+                yojson
                 caqti-driver-postgresql
                 ppx_deriving
                 pkgs.dbmate

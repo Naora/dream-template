@@ -43,7 +43,10 @@ let site_head t =
     [ meta [ name "viewport"; content "width=device-width, initial-scale=1.0" ]
     ; meta [ name "description"; content "A simple CMS" ]
     ; meta [ name "htmx-config"; content {|{ "globalViewTransitions": true }|} ]
-    ; link [ rel "stylesheet"; href "%s" Assets.main_css ]
+    ; link [ rel "stylesheet"; href "%s" Assets.Static.main_css ]
+      (*     ; script [ type_ "importmap" ] "%s" Assets.import_map *)
+    ; script [ type_ "module"; src "%s" Assets.Static._hotwire_stimulus_js ] ""
+    ; script [ type_ "module"; src "%s" Assets.Static._hotwire_turbo_js ] ""
     ; title [] "%s" t
     ]
 ;;

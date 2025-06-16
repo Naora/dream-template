@@ -6,7 +6,7 @@ run:
 # run tailwindcss
 [group("server")]
 css:
-    tailwindcss -i lib/client/tailwindcss/input.css -o lib/client/assets/main.css -m --watch
+    tailwindcss -i lib/client/tailwindcss/input.css -o lib/client/static/main.css -m --watch
 
 test:
     dune test
