@@ -1,7 +1,7 @@
 # run the web server
 [group("server")]
 run:
-    dune exec atelier-gerer -w
+    dune exec dream-template -w
 
 # run tailwindcss
 [group("server")]

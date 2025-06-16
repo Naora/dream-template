@@ -13,7 +13,8 @@ let site_header request =
             [ class_ "navbar bg-base-100 shadow-sm" ]
             [ div
                 [ class_ "flex-1" ]
-                [ a [ class_ "btn btn-ghost text-xl"; href "/" ] [ txt "Atelier Gerer" ] ]
+                [ a [ class_ "btn btn-ghost text-xl"; href "/" ] [ txt "dream-template" ]
+                ]
             ; div
                 [ class_ "flex-none" ]
                 [ ul
@@ -34,7 +35,7 @@ let site_header request =
 let site_footer =
   footer
     [ class_ "footer sm:footer-horizontal bg-neutral text-neutral-content p-10" ]
-    [ div [] [ p [] [ txt "© 2025 l'atelier gerer" ] ] ]
+    [ div [] [ p [] [ txt "© 2025 dream-template" ] ] ]
 ;;
 
 let site_head t =

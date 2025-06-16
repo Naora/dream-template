@@ -1,6 +1,6 @@
 (lang dune 3.18)
 
-(name atelier-gerer)
+(name dream-template)
 
 (generate_opam_files true)
 
@@ -16,7 +16,7 @@
 (documentation https://url/to/documentation)
 
 (package
- (name atelier-gerer)
+ (name dream-template)
  (synopsis "A short synopsis")
  (description "A longer description")
  (depends ocaml)

@@ -1,5 +1,5 @@
 {
-  description = "atelier gerer";
+  description = "dream template";
 
   inputs = {
     nixpkgs.url = "github:Naora/nixpkgs/dream-html";
@@ -21,7 +21,7 @@
       packages = {
         default = buildDunePackage {
           inherit version;
-          pname = "atelier-gerer";
+          pname = "dream-template";
           buildInputs = with ocamlPackages; [
                 dream
                 pure-html
@@ -54,7 +54,7 @@
               ### Setup: Env vars ###
               echo "Setting up env vars"
               # APPLICATION
-              export DREAM_DATABASE="postgresql://postgres@localhost:5432/atelier"
+              export DREAM_DATABASE="postgresql://postgres@localhost:5432/dream-template"
               # DBMATE
               export DATABASE_URL="$DREAM_DATABASE?sslmode=disable"
               # POSTGRESQL

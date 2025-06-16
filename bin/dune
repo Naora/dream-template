@@ -1,4 +1,4 @@
 (executable
- (public_name atelier-gerer)
+ (public_name dream-template)
  (name main)
  (libraries server caqti-driver-postgresql))
