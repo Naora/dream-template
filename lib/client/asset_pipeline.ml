@@ -59,22 +59,20 @@ module Cache = struct
   let make () =
     let open Result in
     match Sys.file_exists cache_filename with
-    | false -> []
     | true ->
-      let r = Sexp.parse_file cache_filename >>= sexp_to_cache_list in
-      (match r with
-       | Ok c -> c
-       | Error e -> failwith e)
+      let* sexp = Sexp.parse_file cache_filename in
+      let* cache = sexp_to_cache_list sexp in
+      Ok cache
+    | false -> Ok []
   ;;
 
   let get_hash filename t =
-    match List.Assoc.get ~eq:String.equal filename t with
-    | Some entry ->
-      let stats = Unix.stat filename in
-      (match Float.equal entry.mtime stats.st_mtime with
-       | false -> None
-       | true -> Some entry.hash)
-    | None -> None
+    let open Option in
+    let* entry = List.Assoc.get ~eq:String.equal filename t in
+    let stats = Unix.stat filename in
+    match Float.equal entry.mtime stats.st_mtime with
+    | false -> None
+    | true -> Some entry.hash
   ;;
 
   let set_hash filename hash t_list =
@@ -82,7 +80,7 @@ module Cache = struct
     List.Assoc.set ~eq:String.equal filename { hash; mtime = stats.st_mtime } t_list
   ;;
 
-  let save t = Sexp.to_file cache_filename t
+  let save t = t |> cache_to_sexp_list |> Sexp.to_file cache_filename
 end
 
 let filename_valname name =
@@ -115,7 +113,7 @@ let file_to_md5 file = file |> Digest.file |> Digest.to_hex
  Otherwise we are using the old hash. 
  And the cache seemed not to have added any better preformances... But i let it in... maybe one day i can remove this *)
 let get_assets files =
-  let cache = Cache.make () in
+  let cache = Cache.make () |> Result.get_exn in
   let assets, cache =
     List.fold_left
       (fun (assets, c) filename ->
@@ -133,7 +131,7 @@ let get_assets files =
       ([], cache)
       files
   in
-  Cache.save @@ Cache.cache_to_sexp_list cache;
+  Cache.save cache;
   assets
 ;;
 

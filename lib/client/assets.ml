@@ -10,8 +10,3 @@ let loader ~not_found root path request =
     Lwt.return response
   | false -> not_found request
 ;;
-
-let import_map map =
-  let json = `Assoc (List.map (fun (k, v) -> k, `String v) map) in
-  Yojson.Safe.to_string json
-;;
