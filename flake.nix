@@ -2,7 +2,7 @@
   description = "dream template";
 
   inputs = {
-    nixpkgs.url = "github:Naora/nixpkgs/dream-html";
+    nixpkgs.url = "github:nixos/nixpkgs";
     flake-parts.url = "github:hercules-ci/flake-parts";
   };
 
