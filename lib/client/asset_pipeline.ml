@@ -102,7 +102,7 @@ let write_paths t_list =
     List.iter
       (fun t ->
          let val_name = filename_valname t.filename in
-         Printf.fprintf out "let %s = \"%s?hash=%s\"\n%!" val_name t.filename t.hash)
+         Printf.fprintf out "let %s = \"/%s?hash=%s\"\n%!" val_name t.filename t.hash)
       t_list)
 ;;
 
